@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+    <div class="container">
+        <h1>💖 ¡Hola, mi querida y amada Chaupis! 💖</h1>
+        <p>Eres la persona más especial en mi vida, y decirte lo mucho que te amo,
+            gracias por estar conmigo siempre, nunca dudes el amor que te tengo y voy a mejorar mas porque
+            una persona como tu merece lo mejor de lo mejor y esa persona voy a ser yo y aunque falte mucho aun par febrero
+            queria hacerle la pregunta a una princesa tan unica y linda como usted.
+        </p>
+        <h2>¿Quieres ser mi San Valentín? 💘</h2>
+        <div class="buttons">
+            <button id="yes">¡Sí, claro! 💕</button>
+            <button id="no">No 😢</button>
+        </div>
+        <p id="response"></p>
+        <div id="tulip" class="hidden"></div>
+        <a id="specialLink" class="hidden" href="romantica.html">🌹 Entra aquí, cuando hallas respondido mi amor 🌹</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const noButton = document.getElementById("no");
+            const yesButton = document.getElementById("yes");
+            const responseText = document.getElementById("response");
+            const tulip = document.getElementById("tulip");
+            const specialLink = document.getElementById("specialLink");
+            
+            noButton.addEventListener("mouseover", function() {
+                const x = Math.random() * (window.innerWidth - 100);
+                const y = Math.random() * (window.innerHeight - 100);
+                noButton.style.position = "absolute";
+                noButton.style.left = `${x}px`;
+                noButton.style.top = `${y}px`;
+            });
+            
+            yesButton.addEventListener("click", function() {
+                responseText.innerHTML = "💖 ¡Sabía que dirías que sí, por eso que te amo muchiisimoooo, igual no puedes decir que no MY LOVE💖";
+                responseText.style.fontSize = "24px";
+                responseText.style.fontSize = "24px";
+                responseText.style.fontFamily = "Pacifico, cursive";
+                tulip.classList.remove("hidden");
+                specialLink.classList.remove("hidden");
+                createEffects();
+            });
+        });
+        
+        function createEffects() {
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement("div");
+                heart.className = "heart";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 4 + 6 + "s";
+                document.body.appendChild(heart);
+                
+                let flower = document.createElement("div");
+                flower.className = "flower";
+                flower.style.left = Math.random() * 100 + "vw";
+                flower.style.animationDuration = Math.random() * 4 + 6 + "s";
+                document.body.appendChild(flower);
+                
+                setTimeout(() => { 
+                    heart.remove();
+                    flower.remove();
+                }, 10000);
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            font-family: 'Pacifico', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .buttons button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        #yes {
+            background: #ff4d6d;
+            color: white;
+        }
+        #yes:hover {
+            background: #ff1e50;
+            transform: scale(1.1);
+        }
+        #no {
+            background: #6c757d;
+            color: white;
+        }
+        #specialLink {
+            display: block;
+            margin-top: 20px;
+            font-size: 20px;
+            color: #fffc00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #specialLink:hover {
+            color: #fff;
+        }
+        .heart, .flower {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            animation: floatEffects 10s linear infinite;
+        }
+        .heart {
+            background: red;
+            clip-path: path('M10 30s-10-10-10-17c0-3 2-5 5-5s5 2 5 5c0-3 2-5 5-5s5 2 5 5c0 7-10 17-10 17z');
+        }
+        .flower {
+            background: pink;
+            border-radius: 50%;
+        }
+        @keyframes floatEffects {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para el amor de mi vida 💖</title>
+    <link rel="stylesheet" href="romantica.css">
+    <script defer src="romantica.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="romantic_music.mp3" type="audio/mp3">
+    </audio>
+    <div class="container">
+        <h1>🌹 Para ti, mi amor, mi niña y sobre todo mi mujer 🌹</h1>
+        <p>Eres la razón de mi felicidad, mi paz y mi todo. hoy, mañana y siempre, quiero recordarte cuánto te amo, cuanto te ame y cuanto te amare mi pequeña princesa❤️, siempre seras lo mejor que 
+            me pudo haber pasado en la visa mi querida Chaupis💕</p>
+        <div class="gallery">
+            <img src="foto1.jpg" alt="Mi princesa">
+            <img src="foto2.jpg" alt="Mi niña">
+            <img src="foto3.jpg" alt="Mi amada">
+        </div>
+        <h2>💖 Eres la persona más especial en mi vida y desde ahora en adelante te lo hare recordar mas y mas y cada vez mas 💖</h2>
+        <p>Gracias por existir y por llenar mi vida de amor, felicidad, de paz y de todo lo bueno, porque una persona como tu , solo se encuntra una vez en el mundo
+            tomo su tiempo es cierto , pero al fin te tengo en mi brazos para cuidarte,amarte y respetarte mi vida ❤️
+        </p>
+        <button id="loveButton">💞 Presiona aquí, porque cada latido es para ti💞</button>
+        <p id="secretMessage" class="hidden">TE AMO MARIA FERNANDA CHAUPIS DUQUE❤️</p>
+    </div>
+
+    <script>
+        document.getElementById("loveButton").addEventListener("click", function() {
+            document.getElementById("secretMessage").classList.remove("hidden");
+            createHearts();
+        });
+        
+        function createHearts() {
+            for (let i = 0; i < 50; i++) {
+                let heart = document.createElement("div");
+                heart.className = "floating-heart";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 4 + 6 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 10000);
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            font-family: 'Great Vibes', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            margin: 30px;
+            border-radius: 30px;
+        }
+        #loveButton {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            background: #ff4d6d;
+            color: white;
+            transition: all 0.3s;
+        }
+        #loveButton:hover {
+            background: #ff1e50;
+            transform: scale(1.1);
+        }
+        .floating-heart {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            background: red;
+            clip-path: path('M10 30s-10-10-10-17c0-3 2-5 5-5s5 2 5 5c0-3 2-5 5-5s5 2 5 5c0 7-10 17-10 17z');
+            animation: floatHearts 10s linear infinite;
+        }
+        @keyframes floatHearts {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-100vh); opacity: 0; }
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</body>
+</html>
